@@ -1,0 +1,30 @@
+<launch>
+   <node pkg="tf" type="static_transform_publisher" name="camera_frame_link" args="0 0 0 0 0 0 left_hand_camera cameras/left_hand_camera 100"/> 
+    <node pkg="tuw_aruco" type="aruco_node" name="tracker" output="screen">
+        <param name="show_debug_image" value="true"/>
+
+        <!-- <param name="marker_dictonary" value="ARTOOLKITPLUSBCH"/> -->
+        <param name="marker_dictonary" value="ARUCO"/>
+        <param name="marker_size" value="0.2"/>
+
+        <param name="publish_tf" value="true"/>
+        <param name="publish_markers" value="true"/>
+        <param name="publish_fiducials" value="true"/>
+        <param name="pose_estimation_enabled" value="true"/>
+
+
+        <remap from="image" to="/cameras/left_hand_camera/image"/>
+        <remap from="camera_info" to="/cameras/left_hand_camera/camera_info"/>
+
+        <remap from="markers" to="/markersAruco"/>
+        <remap from="fiducials" to="/fiducialsAruco"/>
+    </node>
+
+    <node pkg="tuw_marker_pose_estimation" type="pose_estimation_markermap_node" name="arPoseEstimation" output="screen" launch-prefix="gdb -ex run --args">
+        <param name="marker_map_config" value="$(find tuw_marker_pose_estimation)/launch/demo_aruco_markermap_config.xml" />
+
+        <remap from="fiducials" to="/fiducialsAruco"/>
+        <remap from="markers" to="/markersPoseEstimation"/>
+    </node>
+
+</launch>
