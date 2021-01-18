@@ -1,0 +1,8 @@
+- git:
+    local-name: ar_tags
+    uri: https://github.com/ucb-ee106/ar_tags
+    version: master
+- git:
+    local-name: tuw_marker_detection
+    uri: https://github.com/tuw-robotics/tuw_marker_detection.git
+    version: master
