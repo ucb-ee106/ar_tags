@@ -11,7 +11,6 @@
         <param name="publish_fiducials" value="true"/>
         <param name="pose_estimation_enabled" value="true"/>
 
-
         <remap from="image" to="/cameras/left_hand_camera/image"/>
         <remap from="camera_info" to="/cameras/left_hand_camera/camera_info"/>
 
