@@ -3,9 +3,8 @@
     <node pkg="tuw_aruco" type="aruco_node" name="tracker" output="screen">
         <param name="show_debug_image" value="true"/>
 
-        <!-- <param name="marker_dictonary" value="ARTOOLKITPLUSBCH"/> -->
         <param name="marker_dictonary" value="ARUCO"/>
-        <param name="marker_size" value="0.2"/>
+        <param name="marker_size" value="0.1778"/>
 
         <param name="publish_tf" value="true"/>
         <param name="publish_markers" value="true"/>
